@@ -2,7 +2,11 @@
 These ops commands are made using [cmdio](https://github.com/lesiw/cmdio) and [ops](https://github.com/lesiw/ops) for ease of development.
 
 
-# running locally
+# Running locally
+## Prerequisite
+- Have Go installed
+
+## Steps
 1. Install ops
 `go install lesiw.io/op@latest`
 
