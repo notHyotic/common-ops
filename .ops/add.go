@@ -13,7 +13,12 @@ func (Ops) Add() {
 
 	defer rnr.Close()
 
-	err := rnr.Run("git", "add", ".")
+	err := rnr.Run("gofmt", "-s", "-w", "./.ops")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = rnr.Run("git", "add", ".")
 	if err != nil {
 		log.Fatal(err)
 	}
