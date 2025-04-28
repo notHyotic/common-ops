@@ -8,7 +8,7 @@ import (
 
 func (Ops) Push() {
 	var rnr = sys.Runner().WithEnv(map[string]string{
-		"PWD": "./infrastructure",
+		"PWD": "./",
 	})
 
 	defer rnr.Close()
