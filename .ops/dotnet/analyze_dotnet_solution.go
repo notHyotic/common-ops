@@ -1,4 +1,4 @@
-package main
+package dotnet
 
 import (
 	"encoding/xml"
@@ -26,7 +26,7 @@ type SlnProject struct {
 }
 
 // Parses the .sln file to extract project paths and solution folders
-func parseSln(slnPath string) ([]SlnProject, error) {
+func ParseSln(slnPath string) ([]SlnProject, error) {
 	content, err := os.ReadFile(slnPath)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func parseSln(slnPath string) ([]SlnProject, error) {
 }
 
 // Analyzes a .csproj file to determine project type and package usage
-func analyzeProject(csprojPath, targetPackage string) (isTest bool, isWeb bool, hasPackage bool, err error) {
+func AnalyzeProject(csprojPath, targetPackage string) (isTest bool, isWeb bool, hasPackage bool, err error) {
 	info, err := os.Stat(csprojPath)
 	if err != nil {
 		return
