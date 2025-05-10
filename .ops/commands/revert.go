@@ -1,4 +1,4 @@
-package main
+package commands
 
 import (
 	"log"
@@ -6,16 +6,15 @@ import (
 	"lesiw.io/cmdio/sys"
 )
 
-func (Ops) Push() {
+func (Ops) Revert() {
 	var rnr = sys.Runner().WithEnv(map[string]string{
 		"PWD": "./",
 	})
 
 	defer rnr.Close()
 
-	err := rnr.Run("git", "push", "origin", "HEAD")
+	err := rnr.Run("git", "reset", "--soft", "HEAD~1")
 	if err != nil {
 		log.Fatal(err)
 	}
-
 }

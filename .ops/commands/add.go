@@ -1,21 +1,24 @@
-package main
+package commands
 
 import (
 	"log"
-	"os"
 
 	"lesiw.io/cmdio/sys"
 )
 
-func (Ops) Renamebranch() {
+func (Ops) Add() {
 	var rnr = sys.Runner().WithEnv(map[string]string{
 		"PWD": "./",
 	})
-	args := os.Args
-	newbranchname := args[2]
+
 	defer rnr.Close()
 
-	err := rnr.Run("git", "branch", "-M", newbranchname)
+	err := rnr.Run("gofmt", "-s", "-w", "./.ops")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = rnr.Run("git", "add", ".")
 	if err != nil {
 		log.Fatal(err)
 	}

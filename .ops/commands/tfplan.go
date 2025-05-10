@@ -1,4 +1,4 @@
-package main
+package commands
 
 import (
 	"log"
@@ -6,7 +6,7 @@ import (
 	"lesiw.io/cmdio/sys"
 )
 
-func (Ops) Tfapply() {
+func (Ops) Tfplan() {
 	var rnr = sys.Runner().WithEnv(map[string]string{
 		"PWD": "./infrastructure",
 	})
@@ -23,7 +23,7 @@ func (Ops) Tfapply() {
 		log.Fatal(err)
 	}
 
-	err = rnr.Run("terraform", "apply", "-auto-approve")
+	err = rnr.Run("terraform", "plan")
 	if err != nil {
 		log.Fatal(err)
 	}

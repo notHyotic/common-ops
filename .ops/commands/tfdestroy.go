@@ -1,4 +1,4 @@
-package main
+package commands
 
 import (
 	"log"
@@ -6,7 +6,7 @@ import (
 	"lesiw.io/cmdio/sys"
 )
 
-func (Ops) Tfplan() {
+func (Ops) Tfdestroy() {
 	var rnr = sys.Runner().WithEnv(map[string]string{
 		"PWD": "./infrastructure",
 	})
@@ -23,7 +23,7 @@ func (Ops) Tfplan() {
 		log.Fatal(err)
 	}
 
-	err = rnr.Run("terraform", "plan")
+	err = rnr.Run("terraform", "destroy", "-auto-approve")
 	if err != nil {
 		log.Fatal(err)
 	}

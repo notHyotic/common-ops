@@ -1,4 +1,4 @@
-package main
+package commands
 
 import (
 	"log"
@@ -6,20 +6,16 @@ import (
 	"lesiw.io/cmdio/sys"
 )
 
-func (Ops) Add() {
+func (Ops) Push() {
 	var rnr = sys.Runner().WithEnv(map[string]string{
 		"PWD": "./",
 	})
 
 	defer rnr.Close()
 
-	err := rnr.Run("gofmt", "-s", "-w", "./.ops")
+	err := rnr.Run("git", "push", "origin", "HEAD")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = rnr.Run("git", "add", ".")
-	if err != nil {
-		log.Fatal(err)
-	}
 }
