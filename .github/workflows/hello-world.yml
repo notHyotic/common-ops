@@ -29,3 +29,6 @@ jobs:
 
       - name: Run Go script
         run: op hello
+
+      - name: Run example of importing a module
+        run: op importexample

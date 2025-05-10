@@ -9,7 +9,7 @@ import (
 )
 
 // example of how to import libs from libs folder
-func (Ops) ImportExample() {
+func (Ops) Importexample() {
 	var rnr = sys.Runner().WithEnv(map[string]string{
 		"PWD": "./",
 	})
